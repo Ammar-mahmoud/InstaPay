@@ -12,15 +12,12 @@ public class BankAccountModel {
         this.accountHolder = accountHolder;
         this.balance = balance;
     }
-
     public void deposit(float amount) {
         balance += amount;
     }
-
     public void withdraw(float amount) {
         balance -= amount;
     }
-
     public double getBalance() {
         return balance;
     }
@@ -33,13 +30,19 @@ public class BankAccountModel {
     public static Vector<BankAccountModel> bankAccountVector = new Vector<>();
 
     static {
-        BankAccountModel account1 = new BankAccountModel("123456789", "John Doe", 1000.0);
+        BankAccountModel account1 = new BankAccountModel("123456789", "Ahmed Amr", 1000.0);
         bankAccountVector.add(account1);
 
-        BankAccountModel account2 = new BankAccountModel("987654321", "Jane Doe", 500.0);
+        BankAccountModel account2 = new BankAccountModel("987654321", "omar osama", 500.0);
         bankAccountVector.add(account2);
 
-        BankAccountModel account3 = new BankAccountModel("111222333", "Bob Smith", 1500.0);
+        BankAccountModel account3 = new BankAccountModel("111222333", "Yahia Abdallah", 1500.0);
+        bankAccountVector.add(account3);
+
+        BankAccountModel account4 = new BankAccountModel("987654322", "ammar mahmoud", 500.0);
+        bankAccountVector.add(account2);
+
+        BankAccountModel account5 = new BankAccountModel("246810246", "mohamed wael", 1500.0);
         bankAccountVector.add(account3);
     }
 
