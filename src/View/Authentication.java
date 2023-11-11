@@ -19,6 +19,5 @@ public class Authentication {
             System.out.print("Enter password again: ");
             password = scanner.nextLine();
         }
-        System.out.print("hello");
     }
 }
