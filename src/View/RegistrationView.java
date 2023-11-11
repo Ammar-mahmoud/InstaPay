@@ -32,6 +32,7 @@ public class RegistrationView {
             mobileNumber = scanner.nextLine();
         }
 
+
         boolean isValidRegistration = registrationService.validRegistration(username, password, mobileNumber);
 
         if (isValidRegistration) {
