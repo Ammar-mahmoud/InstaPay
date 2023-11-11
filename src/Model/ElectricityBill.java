@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.Date;
-class ElectricityBill extends BillModel {
+public class ElectricityBill extends BillModel {
     private String electricitySupplier;
     private float electricityMeterUsage;
 
