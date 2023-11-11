@@ -1,4 +1,5 @@
 package Controll;
+import Model.MoneyProvidable;
 import Model.UserModel;
 import java.util.Scanner;
 
@@ -56,5 +57,6 @@ public abstract class RegistrationService {
         }
 
         public abstract boolean checkMoneyProvider(String phone);
+        public abstract MoneyProvidable getAccount(String username);
 
 }

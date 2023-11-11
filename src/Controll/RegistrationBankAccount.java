@@ -1,9 +1,16 @@
 package Controll;
-
+import Model.BankAccountModel;
 public class RegistrationBankAccount extends RegistrationService{
+    BankAPI bankAPI;
+    public RegistrationBankAccount() {
+        bankAPI=new BankAPI();
+    }
+
     @Override
     public boolean checkMoneyProvider(String phone) {
-        BankAPI B1=new BankAPI();
-        return B1.checkMoneyProvider();
+        return bankAPI.checkMoneyProvider();
+    }
+    public BankAccountModel getAccount(String username){
+        return bankAPI.checkBankExiestance(username);
     }
 }
