@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Vector;
 
-public class BankAccountModel {
+public class BankAccountModel implements MoneyProvidable{
     private String accountNumber;
     private String accountHolder;
     private double balance;

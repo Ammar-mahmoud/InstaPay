@@ -1,9 +1,20 @@
 package Controll;
 
+import Model.WalletModel;
+
 public class RegistrationWallet extends RegistrationService{
+    WalletAPI walletAPI;
+    public RegistrationWallet() {
+        walletAPI=new WalletAPI();
+    }
+
     @Override
     public boolean checkMoneyProvider(String phone) {
-        WalletAPI w1=new WalletAPI();
-        return w1.checkMoneyProvider();
+        return walletAPI.checkMoneyProvider();
+    }
+
+    @Override
+    public WalletModel getAccount(String username) {
+        return walletAPI.checkWalletExiestance(username);
     }
 }
