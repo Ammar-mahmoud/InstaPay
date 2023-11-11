@@ -39,13 +39,13 @@ public class RegistrationView {
         }
 
 
-        boolean isValidRegistration = registrationService.validRegistration(username, password, mobileNumber);
+        UserModel isValidRegistration = registrationService.validRegistration(username, password, mobileNumber);
 
-        if (isValidRegistration) {
-            UserModel newUser = new UserModel(username, password, mobileNumber, registrationService.getAccount(username));
-            UserModel.userVector.add(newUser);
+        if (isValidRegistration != null) {
+
             System.out.println("Registration successful!");
-
+            UserProfile userProfile = new UserProfile(isValidRegistration);
+            userProfile.run();
 
         } else {
             System.out.println("Registration failed. Please check your information and try again.");

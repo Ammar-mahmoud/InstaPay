@@ -23,7 +23,8 @@ public class WelcomeView {
             RegistrationView registrationView=new RegistrationView();
             registrationView.registrationView();
         } else if (choice == 2) {
-            // Call the authentication view or method
+            Authentication authentication = new Authentication();
+            authentication.authentictaionView();
         }
     }
     public static void main(String[] args) {

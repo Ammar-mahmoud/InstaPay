@@ -18,8 +18,6 @@ public abstract class WalletModel implements MoneyProvidable {
 
     public abstract void deposit(float amount);
 
-    public abstract void withdraw(int amount);
-
     public abstract boolean checkBalance();
     public String getMobileNumber() {
         return mobileNumber;
@@ -27,10 +25,6 @@ public abstract class WalletModel implements MoneyProvidable {
 
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
-    }
-
-    public float getBalance() {
-        return balance;
     }
 
     public void setBalance(float balance) {
