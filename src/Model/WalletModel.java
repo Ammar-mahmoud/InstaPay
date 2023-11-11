@@ -53,7 +53,7 @@ public abstract class WalletModel implements MoneyProvidable {
         this.activeStatus = activeStatus;
     }
     static {
-        WalletModel wallet1 = new BankWallet("01010101010", 1000, "user1", true, "QNB", 5000);
+        WalletModel wallet1 = new BankWallet("01010101010", 1000, "salma", true, "QNB", 5000);
         wallet1.deposit(500);
         wallet1.withdraw(200);
         wallet1.checkBalance();
