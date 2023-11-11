@@ -1,10 +1,13 @@
 package Model;
 
+import java.util.Vector;
+
 public abstract class WalletModel {
     protected String mobileNumber;
     protected float balance;
     protected String username;
     protected boolean activeStatus;
+    public static Vector<WalletModel> wallets = new Vector<>();
 
     public WalletModel(String mobileNumber, float balance, String username, boolean activeStatus) {
         this.mobileNumber = mobileNumber;
@@ -54,16 +57,19 @@ public abstract class WalletModel {
         wallet1.deposit(500);
         wallet1.withdraw(200);
         wallet1.checkBalance();
+        wallets.add(wallet1);
 
         WalletModel wallet2 = new TeleWallet("01020202020", 2000, "user2", true, "Telecom1");
         wallet2.deposit(1000);
         wallet2.withdraw(500);
         wallet2.checkBalance();
+        wallets.add(wallet2);
 
         WalletModel wallet3 = new ElectronicWallet("01030303030", 3000, "user3", true, "QRCode1");
         wallet3.deposit(1500);
         wallet3.withdraw(700);
         wallet3.checkBalance();
+        wallets.add(wallet3);
     }
 
 }

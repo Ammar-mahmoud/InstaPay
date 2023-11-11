@@ -3,10 +3,6 @@ import Model.UserModel;
 import java.util.Scanner;
 
 public abstract class RegistrationService {
-        private OTPService otpService;
-        public RegistrationService(OTPService otpService) {
-                this.otpService = otpService;
-        }
         public  boolean validRegistration(String username, String password, String mobileNumber){
             return validUsername(username) && validPassword(password);
         }
@@ -37,6 +33,7 @@ public abstract class RegistrationService {
         }
 
         public boolean sendOTP(String phone) {
+                OTPService otpService=new OTPService(6);
                 String generatedOTP = otpService.generateRandomOTP();
                 while(!otpService.send(phone, generatedOTP)) {
                         ;

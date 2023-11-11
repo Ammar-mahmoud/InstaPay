@@ -1,12 +1,9 @@
 package Controll;
 
 public class RegistrationWallet extends RegistrationService{
-    public RegistrationWallet(OTPService otpService) {
-        super(otpService);
-    }
-
     @Override
     public boolean checkMoneyProvider(String phone) {
-        return false;
+        WalletAPI w1=new WalletAPI();
+        return w1.checkMoneyProvider();
     }
 }

@@ -1,9 +1,6 @@
 package View;
 
-import Controll.OTPService;
-import Controll.RegistrationBankAccount;
-import Controll.RegistrationService;
-import Controll.RegistrationWallet;
+import Controll.*;
 
 import java.util.Scanner;
 
@@ -26,25 +23,18 @@ public class WelcomeView {
             System.out.println("Enter The Registration Type : ");
             System.out.println("1. By Wallet");
             System.out.println("2. By Bank Account");
-            int ch=scanner.nextInt();
-            while (!(ch== 1 || ch == 2)) {
+            int ch = scanner.nextInt();
+            while (!(ch == 1 || ch == 2)) {
                 System.out.println("Invalid choice. Please choose 1 for Registration By Wallet  or 2 for Registration By Bank Account.");
-                ch=scanner.nextInt();
+                ch = scanner.nextInt();
             }
-            if(ch==1) {
-                // factory design pattern
-                RegistrationView registrationView = new RegistrationView(new RegistrationWallet(new OTPService(6)));
-                registrationView.registrationView();
-            }
-            else{
-                RegistrationView registrationView = new RegistrationView(new RegistrationBankAccount(new OTPService(6)));
-                registrationView.registrationView();
-            }
+            RegistrationService registrationService= RegistrationFactory.createRegistration(ch);
+            RegistrationView registrationView=new RegistrationView(registrationService);
+            registrationView.registrationView();
         } else if (choice == 2) {
             // Call the authentication view or method
         }
     }
-
     public static void main(String[] args) {
         WelcomeView welcomeView = new WelcomeView();
         welcomeView.enterview();
