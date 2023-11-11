@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.Date;
-class WaterBill extends BillModel {
+public class WaterBill extends BillModel {
     private String waterSupplier;
     private float waterMeterUsage;
 
