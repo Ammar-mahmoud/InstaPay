@@ -1,12 +1,9 @@
 package Controll;
 
 public class RegistrationBankAccount extends RegistrationService{
-    public RegistrationBankAccount(OTPService otpService) {
-        super(otpService);
-    }
-
     @Override
     public boolean checkMoneyProvider(String phone) {
-        return false;
+        BankAPI B1=new BankAPI();
+        return B1.checkMoneyProvider();
     }
 }

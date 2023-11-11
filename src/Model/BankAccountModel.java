@@ -47,5 +47,7 @@ public class BankAccountModel {
     }
 
 
-
+    public String getUsername() {
+        return accountHolder;
+    }
 }

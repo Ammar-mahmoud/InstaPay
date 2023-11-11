@@ -1,7 +1,7 @@
 package View;
 import Controll.RegistrationService;
 import java.util.Scanner;
-
+import Model.UserModel;
 public class RegistrationView {
     private RegistrationService registrationService;
 
@@ -36,6 +36,7 @@ public class RegistrationView {
 
         if (isValidRegistration) {
             System.out.println("Registration successful!");
+
         } else {
             System.out.println("Registration failed. Please check your information and try again.");
         }
