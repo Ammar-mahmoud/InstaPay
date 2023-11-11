@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Vector;
 
-public abstract class WalletModel implements MoneyProvidable{
+public abstract class WalletModel implements MoneyProvidable {
     protected String mobileNumber;
     protected float balance;
     protected String username;
@@ -53,13 +53,13 @@ public abstract class WalletModel implements MoneyProvidable{
         this.activeStatus = activeStatus;
     }
     static {
-        WalletModel wallet1 = new BankWallet("01010101010", 1000, "salma", true, "Bank1", 5000);
+        WalletModel wallet1 = new BankWallet("01010101010", 1000, "user1", true, "QNB", 5000);
         wallet1.deposit(500);
         wallet1.withdraw(200);
         wallet1.checkBalance();
         wallets.add(wallet1);
 
-        WalletModel wallet2 = new TeleWallet("01020202020", 2000, "user2", true, "Telecom1");
+        WalletModel wallet2 = new TeleWallet("01020202020", 2000, "user2", true, "Vodafone");
         wallet2.deposit(1000);
         wallet2.withdraw(500);
         wallet2.checkBalance();
