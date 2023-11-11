@@ -30,7 +30,7 @@ public class BankAccountModel {
     public static Vector<BankAccountModel> bankAccountVector = new Vector<>();
 
     static {
-        BankAccountModel account1 = new BankAccountModel("123456789", "Ahmed Amr", 1000.0);
+        BankAccountModel account1 = new BankAccountModel("123456789", "user1", 1000.0);
         bankAccountVector.add(account1);
 
         BankAccountModel account2 = new BankAccountModel("987654321", "omar osama", 500.0);
