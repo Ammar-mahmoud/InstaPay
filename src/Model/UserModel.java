@@ -35,4 +35,12 @@ public class UserModel {
     public String getPassword() {
         return password;
     }
+
+    public java.lang.String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public MoneyProvidable getMoneyProvider() {
+        return moneyProvider;
+    }
 }

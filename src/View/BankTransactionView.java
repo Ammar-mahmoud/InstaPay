@@ -12,5 +12,7 @@ public class BankTransactionView implements TransactionViewable{
         String distination = scanner.nextLine();
         System.out.print("Enter Value: ");
         float amount = scanner.nextFloat();
+        TransactionModel transactionModel = new TransactionModel();
+
     }
 }

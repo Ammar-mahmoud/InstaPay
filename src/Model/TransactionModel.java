@@ -9,11 +9,12 @@ public class TransactionModel {
     private String destination;
     private float transferValue;
 
-    public TransactionModel(int transactionID, Date date, String source, String destination) {
+    public TransactionModel(int transactionID, Date date, String source, String destination, float transferValue) {
         this.transactionID = transactionID;
         this.date = date;
         this.source = source;
         this.destination = destination;
+        this.transferValue = transferValue;
     }
 
     public void saveTransaction() {
@@ -24,10 +25,10 @@ public class TransactionModel {
     public static Vector<TransactionModel> transactionVector = new Vector<>();
 
     static {
-        TransactionModel transaction1 = new TransactionModel(1, new Date(), "01014491245", "01234567890");
+        TransactionModel transaction1 = new TransactionModel(1, new Date(), "01014491245", "01234567890", 1651.5f);
         transaction1.saveTransaction();
 
-        TransactionModel transaction2 = new TransactionModel(2, new Date(), "01234567890", "01014491245", 123.5f);
+        TransactionModel transaction2 = new TransactionModel(2, new Date(), "01234567890", "01014491245", 2032.36f);
         transaction2.saveTransaction();
 
         TransactionModel transaction3 = new TransactionModel(3, new Date(), "01122334455", "01987654321", 155.0f);
