@@ -1,5 +1,6 @@
 package View;
 import Controll.BillPaymentService;
+import Controll.WalletTransaction;
 import Model.UserModel;
 
 import java.util.Scanner;
@@ -31,12 +32,14 @@ public class UserProfile {
         while (true){
             int ch=displayOptions();
             if(ch == 1){
-                // Transfer to wallet using Bank account
+                WalletTransactionView walletTransactionView = new WalletTransactionView(userModel);
+                walletTransactionView.transactionView();
             } else if (ch==2) {
-                // Transfer to another instapay account
+                BankTransactionView bankTransactionView = new BankTransactionView(userModel);
+                bankTransactionView.transactionView();
             }
             else if(ch==3){
-                // inquire about balance
+                System.out.println("Your balance: " + userModel.getMoneyProvider().getBalance() + '$');
             }
             else if(ch ==4){
                 BillPaymentView billPaymentView=new BillPaymentView(new BillPaymentService());

@@ -5,14 +5,20 @@ import Model.UserModel;
 public abstract class TransactionService {
     protected TransactionModel transactionModel;
 
-    public boolean confirmTransaction(){
-        if (moneyValidation())
-        {
-            if (validDestination()){
-                withdrowSource();
+    public TransactionService(TransactionModel transactionModel) {
+        this.transactionModel = transactionModel;
+    }
 
-                transactionModel.saveTransaction();
-                return true;
+    public int confirmTransaction(){//return 0 if confirmed else return error type
+        if (moneyValidation() )
+        {
+            if (validToTransfer()){
+                if (validDestination()){
+                    withdrowSource();
+                    transactionModel.saveTransaction();
+                    return 0;
+                }
+                return 1;
             }
         }
         return false;
@@ -41,6 +47,8 @@ public abstract class TransactionService {
         }
     }
     public abstract void depositDest();
+
+    public abstract boolean validToTransfer();
 
     public abstract boolean validDestination();
 }

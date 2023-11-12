@@ -2,6 +2,7 @@ package Model;
 import java.util.Vector;
 
 public class UserModel {
+
     private String username;
     private String password;
     private String mobileNumber;

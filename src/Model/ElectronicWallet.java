@@ -9,7 +9,7 @@ public class ElectronicWallet extends WalletModel{
     }
 
     @Override
-    public void deposit(float amount) {
+    public void deposit(double amount) {
         // Implement deposit logic for ElectronicWallet
         this.balance += amount;
     }

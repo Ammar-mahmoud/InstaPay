@@ -1,10 +1,15 @@
 package Controll;
 
 import Model.BankAccountModel;
+import Model.TransactionModel;
 import Model.UserModel;
 import Model.WalletModel;
 
 public class WalletTransaction extends TransactionService{
+    public WalletTransaction(TransactionModel transactionModel) {
+        super(transactionModel);
+    }
+
     @Override
     public void depositDest() {
         for (UserModel user : UserModel.userVector)
@@ -14,6 +19,11 @@ public class WalletTransaction extends TransactionService{
                 user.getMoneyProvider().deposit(transactionModel.getTransferValue());
             }
         }
+    }
+
+    @Override
+    public boolean validToTransfer() {
+        return true;
     }
 
     @Override
