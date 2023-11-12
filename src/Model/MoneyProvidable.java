@@ -4,8 +4,8 @@ public abstract class MoneyProvidable {
     protected double balance;
     protected String mobileNumber;
 
-    public abstract void deposit(float amount);
-    public abstract void withdraw(float amount);
+    public abstract void deposit(double amount);
+    public abstract void withdraw(double amount);
 
     public double getBalance(){
         return balance;

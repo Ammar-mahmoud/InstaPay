@@ -11,13 +11,13 @@ public class BankWallet extends WalletModel{
     }
 
     @Override
-    public void deposit(float amount) {
+    public void deposit(double amount) {
         // Implement deposit logic for BankWallet
          balance += amount;
     }
 
     @Override
-    public void withdraw(int amount) {
+    public void withdraw(double amount) {
         // Implement withdraw logic for BankWallet
         balance -= amount;
     }

@@ -2,21 +2,20 @@ package Model;
 
 import java.util.Vector;
 
-public abstract class WalletModel implements MoneyProvidable {
-    protected String mobileNumber;
-    protected float balance;
+public abstract class WalletModel extends MoneyProvidable {
+
     protected String username;
     protected boolean activeStatus;
     public static Vector<WalletModel> wallets = new Vector<>();
 
-    public WalletModel(String mobileNumber, float balance, String username, boolean activeStatus) {
+    public WalletModel(String mobileNumber, double balance, String username, boolean activeStatus) {
         this.mobileNumber = mobileNumber;
         this.balance = balance;
         this.username = username;
         this.activeStatus = activeStatus;
     }
 
-    public abstract void deposit(float amount);
+    public abstract void deposit(double amount);
 
     public abstract boolean checkBalance();
     public String getMobileNumber() {
@@ -27,7 +26,7 @@ public abstract class WalletModel implements MoneyProvidable {
         this.mobileNumber = mobileNumber;
     }
 
-    public void setBalance(float balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 

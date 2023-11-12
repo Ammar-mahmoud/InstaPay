@@ -1,10 +1,13 @@
 package View;
 
+import Controll.BankTransaction;
 import Controll.TransactionService;
 import Controll.WalletTransaction;
 import Model.TransactionModel;
 import Model.UserModel;
 
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class WalletTransactionView extends TransactionViewable{

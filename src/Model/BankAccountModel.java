@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Vector;
 
-public class BankAccountModel implements MoneyProvidable{
+public class BankAccountModel extends MoneyProvidable{
     private String accountNumber;
     private String accountHolder;
 
@@ -13,18 +13,15 @@ public class BankAccountModel implements MoneyProvidable{
         this.mobileNumber = phoneNumber;
     }
 
-    public BankAccountModel(String accountNumber, String accountHolder, double balance) {
-        this.accountNumber = accountNumber;
-        this.accountHolder = accountHolder;
-        this.balance = balance;
+
+    @Override
+    public void deposit(double amount) {
+        {
+            balance += amount;
+        }
     }
-    public void deposit(float amount) {
-        balance += amount;
-    }
 
-
-
-    public void withdraw(float amount) {
+    public void withdraw(double amount) {
         balance -= amount;
     }
     public double getBalance() {
@@ -45,13 +42,13 @@ public class BankAccountModel implements MoneyProvidable{
         BankAccountModel account2 = new BankAccountModel("987654321", "omar osama","01226692044", 500.0);
         bankAccountVector.add(account2);
 
-        BankAccountModel account3 = new BankAccountModel("111222333", "Yahia Abdallah", 1500.0);
+        BankAccountModel account3 = new BankAccountModel("111222333", "Yahia Abdallah", "01244556680", 1500.0);
         bankAccountVector.add(account3);
 
         BankAccountModel account4 = new BankAccountModel("987654322", "ammar mahmoud","01554462054" , 500.0);
         bankAccountVector.add(account2);
 
-        BankAccountModel account5 = new BankAccountModel("246810246", "mohamed wael", 1500.0);
+        BankAccountModel account5 = new BankAccountModel("246810246", "mohamed wael", "01123559845", 1500.0);
         bankAccountVector.add(account3);
     }
 

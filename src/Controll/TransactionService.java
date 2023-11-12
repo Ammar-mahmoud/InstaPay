@@ -20,8 +20,9 @@ public abstract class TransactionService {
                 }
                 return 1;
             }
+            return 2;
         }
-        return false;
+        return 3;
     }
 
     private boolean moneyValidation(){

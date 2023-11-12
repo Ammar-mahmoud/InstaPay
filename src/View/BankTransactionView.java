@@ -6,6 +6,8 @@ import Controll.TransactionService;
 import Model.TransactionModel;
 import Model.UserModel;
 
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class BankTransactionView extends TransactionViewable{

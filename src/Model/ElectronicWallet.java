@@ -15,7 +15,7 @@ public class ElectronicWallet extends WalletModel{
     }
 
     @Override
-    public void withdraw(int amount) {
+    public void withdraw(double amount) {
         // Implement withdraw logic for ElectronicWallet
         this.balance -= amount;
     }

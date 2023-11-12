@@ -37,11 +37,12 @@ public class UserModel {
         return password;
     }
 
-    public java.lang.String getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
 
     public MoneyProvidable getMoneyProvider() {
         return moneyProvider;
     }
+
 }
