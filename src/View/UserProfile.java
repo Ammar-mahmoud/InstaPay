@@ -42,7 +42,7 @@ public class UserProfile {
                 System.out.println("Your balance: " + userModel.getMoneyProvider().getBalance() + '$');
             }
             else if(ch ==4){
-                BillPaymentView billPaymentView=new BillPaymentView(new BillPaymentService());
+                BillPaymentView billPaymentView=new BillPaymentView(new BillPaymentService(userModel));
                 billPaymentView.paymentView();
             }
             else{

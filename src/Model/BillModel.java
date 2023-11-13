@@ -23,16 +23,6 @@ public abstract class BillModel {
     }
     public abstract void savePayment();
 
-    static {
-        // Example initialization of bills
-        BillModel gasBill = new GasBill( "123456", 50.0f, new Date(), "GasSupplier1", 30.5f);
-        gasBill.savePayment();
 
-        BillModel waterBill = new WaterBill( "789012", 75.0f, new Date(), "WaterSupplier1", 45.2f);
-        waterBill.savePayment();
-
-        BillModel electricityBill = new ElectricityBill("345678", 100.0f, new Date(), "ElectricitySupplier1", 60.8f);
-        electricityBill.savePayment();
-    }
 
 }

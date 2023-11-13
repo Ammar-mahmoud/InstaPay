@@ -7,6 +7,8 @@ public class ElectricityBill extends BillModel {
     private String electricitySupplier;
     private float electricityMeterUsage;
     private static List<ElectricityBill> savedPayments = new ArrayList<>();
+    private static List<ElectricityBill> electricityBillDB= new ArrayList<>();
+
 
     public ElectricityBill(String subscriptionNumber, float billValue, Date billingDate, String electricitySupplier, float electricityMeterUsage) {
         super(subscriptionNumber, billValue, billingDate);
@@ -21,15 +23,20 @@ public class ElectricityBill extends BillModel {
         return electricityMeterUsage;
     }
     public void savePayment() {
-        //System.out.println("Saving electricity bill payment...");
-        // Create a copy of the current ElectricityBill with all details
         ElectricityBill paymentCopy = new ElectricityBill(subscriptionNumber, billValue, billingDate, electricitySupplier, electricityMeterUsage);
         savedPayments.add(paymentCopy);
-        //System.out.println("Electricity bill payment saved successfully.");
     }
 
     public static List<ElectricityBill> getSavedPayments() {
         return savedPayments;
+    }
+    public static List<ElectricityBill> getElectricityBillDB() {return electricityBillDB;}
+
+
+    static {
+        // Example initialization of ElectricityBill payments
+        ElectricityBill electricityBill = new ElectricityBill("345678", 100.0f, new Date(), "ElectricitySupplier1", 60.8f);
+        electricityBillDB.add(electricityBill);
     }
 
 }

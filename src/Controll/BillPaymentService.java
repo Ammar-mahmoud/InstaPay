@@ -1,43 +1,33 @@
+
 package Controll;
 
-import Model.BillModel;
-import Model.GasBill;
-import Model.WaterBill;
-import Model.ElectricityBill;
+
+import Model.*;
+import Controll.TransactionService;
 public class BillPaymentService {
     private BillModel bill;
+    private UserModel userModel;
 
-    //    private static BillModel[] billDatabase = {
-//            new GasBill("123456", 50.0f, new Date(), "GasSupplier1", 30.5f),
-//            new WaterBill("789012", 75.0f, new Date(), "WaterSupplier1", 45.2f),
-//            new ElectricityBill("345678", 100.0f, new Date(), "ElectricitySupplier1", 60.8f)
-//    };
-//    public boolean searchBill(String subscriptionNumber) {
-//        for (BillModel storedBill : billDatabase) {
-//            if (storedBill.getSubscriptionNumber().equals(subscriptionNumber)) {
-//                bill = storedBill;
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public BillPaymentService(UserModel userModel) {
+        this.userModel = userModel;
+    }
     public boolean searchBill(String subscriptionNumber) {
         // Search within saved payments of each bill type
-        for (BillModel payment : GasBill.getSavedPayments()) {
+        for (BillModel payment : GasBill.getGasBillDB()) {
             if (payment.getSubscriptionNumber().equals(subscriptionNumber)) {
                 bill = payment;
                 return true;
             }
         }
 
-        for (BillModel payment : WaterBill.getSavedPayments()) {
+        for (BillModel payment : WaterBill.getWaterBillDB()) {
             if (payment.getSubscriptionNumber().equals(subscriptionNumber)) {
                 bill = payment;
                 return true;
             }
         }
 
-        for (BillModel payment : ElectricityBill.getSavedPayments()) {
+        for (BillModel payment : ElectricityBill.getElectricityBillDB()) {
             if (payment.getSubscriptionNumber().equals(subscriptionNumber)) {
                 bill = payment;
                 return true;
@@ -47,12 +37,17 @@ public class BillPaymentService {
         return false;
     }
     public boolean confirmPayment() {
-        if (bill != null) {
-            bill.savePayment();
-            return true;
-        } else {
-            return false;
+        if (bill != null ) {
+            float billValue = bill.getBillValue();
+            if (userModel.getMoneyProvider().getBalance() >= billValue) {
+                userModel.getMoneyProvider().withdraw(billValue);
+                bill.savePayment();
+                return true;
+            } else {
+                return false;
+            }
         }
+        return false;
     }
 
     public void setBill(BillModel bill) {

@@ -6,10 +6,16 @@ import Model.BillModel;
 import Model.GasBill;
 import Model.WaterBill;
 import Model.ElectricityBill;
+import Model.UserModel;
 
 public class BillPaymentView {
     private BillPaymentService billPaymentService;
+    private UserModel userModel;
 
+    public BillPaymentView(UserModel userModel) {
+        this.userModel = userModel;
+        this.billPaymentService = new BillPaymentService(userModel); // Creating BillPaymentService instance here is optional, depending on your design.
+    }
     public BillPaymentView(BillPaymentService billPaymentService) {
         this.billPaymentService = billPaymentService;
     }
@@ -17,43 +23,50 @@ public class BillPaymentView {
         return billPaymentService;
     }
     public void paymentView() {
-        System.out.println("Displaying Payment View...");
-
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter subscription number to search for the bill: ");
-        String subscriptionNumber = scanner.nextLine();
+        while (true) {
+            System.out.print("Enter subscription number to search for the bill: ");
+            String subscriptionNumber = scanner.nextLine();
 
-        boolean billFound = billPaymentService.searchBill(subscriptionNumber);
+            boolean billFound = billPaymentService.searchBill(subscriptionNumber);
 
-        if (billFound) {
-            System.out.println("Bill found! Displaying details...");
+            if (billFound) {
+                System.out.println("Bill found! Displaying details...");
 
-            // Handle the display of bill details within BillPaymentView
-            displayBillDetails(billPaymentService.getBill());
+                // Handle the display of bill details within BillPaymentView
+                displayBillDetails(billPaymentService.getBill());
 
-            System.out.println("Do you want to confirm payment? (yes/no)");
+                System.out.println("Do you want to confirm payment? (yes/no)");
 
-            String confirmationInput = scanner.nextLine().toLowerCase();
+                String confirmationInput = scanner.nextLine().toLowerCase();
 
-            if (confirmationInput.equals("yes")) {
-                boolean paymentConfirmed = billPaymentService.confirmPayment();
+                if (confirmationInput.equals("yes")) {
+                    boolean paymentConfirmed = billPaymentService.confirmPayment();
 
-                if (paymentConfirmed) {
-                    System.out.println("Payment confirmed for Subscription Number: " + subscriptionNumber);
-                    System.out.println("Bill has been saved successfully.");
+                    if (paymentConfirmed) {
+                        System.out.println("Payment confirmed for Subscription Number: " + subscriptionNumber);
+                        System.out.println("Payment has been saved successfully.");
+                    } else {
+                        System.out.println("Payment confirmation failed. Please try again.");
+                        System.out.println("Insufficient balance. Payment confirmation failed.");
+                    }
                 } else {
-                    System.out.println("Payment confirmation failed. Please try again.");
-                    System.out.println("No bill to confirm payment. Please search for a bill first.");
+                    System.out.println("Payment canceled.");
                 }
             } else {
-                System.out.println("Payment canceled.");
+                System.out.println("Bill not found for the provided subscription number.");
             }
-        } else {
-            System.out.println("Bill not found for the provided subscription number.");
+
+            System.out.println("Do you want to perform another Pay Bills operation? (yes/no)");
+
+            String anotherOperationInput = scanner.nextLine().toLowerCase();
+
+            if (!anotherOperationInput.equals("yes")) {
+                break;
+            }
         }
 
-        scanner.close();
     }
 
     // display bill details
