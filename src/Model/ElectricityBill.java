@@ -7,7 +7,7 @@ public class ElectricityBill extends BillModel {
     private String electricitySupplier;
     private float electricityMeterUsage;
     private static List<ElectricityBill> savedPayments = new ArrayList<>();
-    private static List<ElectricityBill> electricityBillDB= new ArrayList<>();
+
 
 
     public ElectricityBill(String subscriptionNumber, float billValue, Date billingDate, String electricitySupplier, float electricityMeterUsage) {
@@ -30,13 +30,7 @@ public class ElectricityBill extends BillModel {
     public static List<ElectricityBill> getSavedPayments() {
         return savedPayments;
     }
-    public static List<ElectricityBill> getElectricityBillDB() {return electricityBillDB;}
 
 
-    static {
-        // Example initialization of ElectricityBill payments
-        ElectricityBill electricityBill = new ElectricityBill("345678", 100.0f, new Date(), "ElectricitySupplier1", 60.8f);
-        electricityBillDB.add(electricityBill);
-    }
 
 }

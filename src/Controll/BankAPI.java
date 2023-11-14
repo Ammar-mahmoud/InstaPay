@@ -4,7 +4,7 @@ import Model.BankAccountModel;
 public class BankAPI {
         public BankAccountModel checkBankExiestance(String username){
             for (BankAccountModel user : BankAccountModel.bankAccountVector) {
-                if (user.getUsername().equals(username)) {
+                if (user.getAccountHolder().equals(username)) {
                     return user;
                 }
             }

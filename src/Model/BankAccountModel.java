@@ -39,7 +39,7 @@ public class BankAccountModel extends MoneyProvidable{
         BankAccountModel account1 = new BankAccountModel("123456789", "user1", "1234567890", 1000.0);
         bankAccountVector.add(account1);
 
-        BankAccountModel account2 = new BankAccountModel("987654321", "omar osama","01226692044", 500.0);
+        BankAccountModel account2 = new BankAccountModel("987654321", "roaa","01226692044", 500.0);
         bankAccountVector.add(account2);
 
         BankAccountModel account3 = new BankAccountModel("111222333", "Yahia Abdallah", "01244556680", 1500.0);

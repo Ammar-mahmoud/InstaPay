@@ -14,7 +14,7 @@ public class BillPaymentView {
 
     public BillPaymentView(UserModel userModel) {
         this.userModel = userModel;
-        this.billPaymentService = new BillPaymentService(userModel); // Creating BillPaymentService instance here is optional, depending on your design.
+        this.billPaymentService = new BillPaymentService(userModel);
     }
     public BillPaymentView(BillPaymentService billPaymentService) {
         this.billPaymentService = billPaymentService;
@@ -26,15 +26,20 @@ public class BillPaymentView {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("Enter bill type: ");
+            System.out.println("1.Gas Bill. ");
+            System.out.println("2.Water Bill. ");
+            System.out.println("3.Electricity Bill. ");
+            int type=scanner.nextInt();
+            scanner.nextLine();
             System.out.print("Enter subscription number to search for the bill: ");
             String subscriptionNumber = scanner.nextLine();
 
-            boolean billFound = billPaymentService.searchBill(subscriptionNumber);
+            boolean billFound = billPaymentService.searchBill(subscriptionNumber,type);
 
             if (billFound) {
                 System.out.println("Bill found! Displaying details...");
 
-                // Handle the display of bill details within BillPaymentView
                 displayBillDetails(billPaymentService.getBill());
 
                 System.out.println("Do you want to confirm payment? (yes/no)");

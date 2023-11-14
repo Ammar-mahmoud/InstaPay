@@ -9,7 +9,6 @@ public class WalletAPI {
         }
         System.out.println("The wallet with '" + username + "' Username is not Exists");
         return null;
-
     }
     public boolean checkMoneyProvider(){
         // assume there is an implementation that tells you about the wallet that has this account and if account valid or not

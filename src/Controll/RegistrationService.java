@@ -20,7 +20,9 @@ public abstract class RegistrationService {
                                 return false;
                         }
                 }
-                return true;
+                if(getAccount(username) ==null)
+                        return false;
+                else return true;
         }
 
         public boolean validPassword(String password){
